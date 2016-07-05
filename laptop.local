@@ -12,15 +12,6 @@ git_clone_or_pull() {
   fi
 }
 
-brew_remove() {
-  if brew_is_installed "$1"; then
-    fancy_echo "Removing %s ..." "$1"
-    brew uninstall "$@"
-  else
-    fancy_echo "Formula %s not found" "$1"
-  fi
-}
-
 apps=(
   alfred
   appcleaner
