@@ -69,6 +69,14 @@ brew_remove() {
   fi
 }
 
+# Install NVM
+fancy_echo "Installing NVM"
+git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+. ~/.nvm/nvm.sh
+append_to_zshrc 'export NVM_DIR="$HOME/.nvm"'
+append_to_zshrc '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm'
+
+# Dotfiles
 if [ -r "$HOME/.rcrc" ]; then
   fancy_echo "Updating dotfiles ..."
   rcup
