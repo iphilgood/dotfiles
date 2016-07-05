@@ -1,0 +1,75 @@
+apps=(
+  alfred
+  appcleaner
+  atom
+  cyberduck
+  disk-inventory-x
+  dropbox
+  evernote
+  flux
+  github-desktop
+  iterm2
+  imageoptim
+  keepingyouawake
+  macvim
+  mongohub
+  postico
+  robomongo
+  rowanj-gitx
+  sequel-pro
+  sizeup
+  sketch
+  skype
+  slack
+  spotify
+  telegram
+  the-unarchiver
+  tunnelblick
+  typora
+  virtualbox
+  visual-studio-code
+  vlc
+  whatsapp
+  xquartz
+)
+
+homebrew_packages=(
+  apple-gcc42
+  ffmpeg
+  gcc
+  ghostscript
+  htop
+  lame
+  media-info
+  phantomjs
+  ssh-copy-id
+  tig
+  v8
+  wget
+)
+
+fancy_echo "Installing apps"
+for pkg in "${apps[@]}"
+do
+  brew cask install $pkg
+done
+
+fancy_echo "Installing homebrew packages"
+for pkg in "${homebrew_packages[@]}"
+do
+  brew $pkg
+done
+
+brew_remove() {
+  if brew_is_installed "$1"; then
+    fancy_echo "Removing %s ..." "$1"
+    brew uninstall "$@"
+  else
+    fancy_echo "Formula %s not found" "$1"
+  fi
+}
+
+if [ -r "$HOME/.rcrc" ]; then
+  fancy_echo "Updating dotfiles ..."
+  rcup
+fi
