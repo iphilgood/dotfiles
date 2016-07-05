@@ -1,3 +1,17 @@
+# From: https://gist.github.com/gtramontina/34fd3223ff754f13df56
+git_clone_or_pull() {
+  local REPOSRC=$1
+  local LOCALREPO=$2
+  local LOCALREPO_VC_DIR=$LOCALREPO/.git
+  if [ ! -d $LOCALREPO_VC_DIR ]; then
+    git clone --recursive $REPOSRC $LOCALREPO
+  else
+    pushd $LOCALREPO
+    git pull $REPOSRC && git submodule update --init --recursive
+    popd
+  fi
+}
+
 brew_remove() {
   if brew_is_installed "$1"; then
     fancy_echo "Removing %s ..." "$1"
@@ -71,6 +85,21 @@ fancy_echo "Installing NVM"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 append_to_zshrc 'export NVM_DIR="$HOME/.nvm"'
 append_to_zshrc '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm'
+
+# From: https://gist.github.com/gtramontina/78c41be1077f1811fe47
+install_prezto() {
+fancy_echo "Installing Prezto"
+  git_clone_or_pull 'https://github.com/sorin-ionescu/prezto.git' "${ZDOTDIR:-$HOME}/.zprezto"
+  TMP_RC_FILE=$(mktemp -t rcfile); cat << EOF > $TMP_RC_FILE
+    setopt EXTENDED_GLOB
+    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+      ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    done
+    rm -f $TMP_RC_FILE
+EOF
+  zsh --rcs $TMP_RC_FILE
+  unset TMP_RC_FILE
+}
 
 # Dotfiles
 if [ -r "$HOME/.rcrc" ]; then
