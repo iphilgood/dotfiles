@@ -1,0 +1,17 @@
+[user]
+  name = 'Phil Schilter'
+  email = 'phil.schilter@gmail.com'
+[github]
+  user = iphilgood
+[alias]
+  co = checkout
+[core]
+  editor = $EDITOR
+[format]
+  pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset
+[push]
+  # Push current branch even if you've never pushed it before
+  default = current
+[pull]
+  # Pull current branch even if you've never pushed it before
+  default = current
