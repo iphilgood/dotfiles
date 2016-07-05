@@ -83,10 +83,11 @@ EOF
 # Install NVM
 fancy_echo "Installing NVM"
 git_clone_or_pull 'https://github.com/creationix/nvm.git' '~/.nvm'
-cd "$HOME/.nvm" && git checkout && git describe --abbrev=0 --tags && cd "$HOME"
-. "$HOME/.nvm/nvm.sh"
-append_to_zshrc 'export NVM_DIR="$HOME/.nvm"'
-append_to_zshrc '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm'
+cd $HOME/.nvm && git checkout `git describe --abbrev=0 --tags` && cd $HOME
+fancy_echo "Rloading NVM ..."
+if [ -f "$HOME/.nvm/nvm.sh" ]; then
+  . "$HOME/.nvm/nvm.sh"
+fi
 
 # From: https://gist.github.com/gtramontina/78c41be1077f1811fe47
 install_prezto() {
@@ -102,6 +103,10 @@ EOF
   zsh --rcs $TMP_RC_FILE
   unset TMP_RC_FILE
 }
+if [ ! -d "$NVM_DIR" ]; then
+  append_to_zshrc 'export NVM_DIR="$HOME/.nvm"'
+  append_to_zshrc '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm'
+fi
 
 install_prezto
 
