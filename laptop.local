@@ -48,6 +48,11 @@ homebrew_packages=(
   wget
 )
 
+# Tapping missing dupes
+brew bundle --file=- <<EOF
+tap "homebrew/dupes"
+EOF
+
 fancy_echo "Installing apps"
 for pkg in "${apps[@]}"
 do
