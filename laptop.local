@@ -73,12 +73,11 @@ brew "v8"
 brew "wget"
 EOF
 
-# Install NVM
-fancy_echo "Installing NVM"
-git_clone_or_pull 'https://github.com/creationix/nvm.git' '~/.nvm'
-cd $HOME/.nvm && git checkout `git describe --abbrev=0 --tags` && cd $HOME
-fancy_echo "Rloading NVM ..."
-if [ -f "$HOME/.nvm/nvm.sh" ]; then
+# NVM
+if [ ! -d "$HOME/.nvm" ]; then
+  fancy_echo "Installing NVM"
+  git_clone_or_pull 'https://github.com/creationix/nvm.git' "$HOME/.nvm"
+  cd "$HOME/.nvm" && git checkout `git describe --abbrev=0 --tags`
   . "$HOME/.nvm/nvm.sh"
 fi
 
