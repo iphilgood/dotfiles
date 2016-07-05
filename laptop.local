@@ -101,6 +101,8 @@ EOF
   unset TMP_RC_FILE
 }
 
+install_prezto
+
 # Dotfiles
 if [ -r "$HOME/.rcrc" ]; then
   fancy_echo "Updating dotfiles ..."
