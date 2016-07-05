@@ -1,3 +1,12 @@
+brew_remove() {
+  if brew_is_installed "$1"; then
+    fancy_echo "Removing %s ..." "$1"
+    brew uninstall "$@"
+  else
+    fancy_echo "Formula %s not found" "$1"
+  fi
+}
+
 apps=(
   alfred
   appcleaner
@@ -33,26 +42,6 @@ apps=(
   xquartz
 )
 
-homebrew_packages=(
-  apple-gcc42
-  ffmpeg
-  gcc
-  ghostscript
-  htop
-  lame
-  media-info
-  phantomjs
-  ssh-copy-id
-  tig
-  v8
-  wget
-)
-
-# Tapping missing dupes
-brew bundle --file=- <<EOF
-tap "homebrew/dupes"
-EOF
-
 fancy_echo "Installing apps"
 for pkg in "${apps[@]}"
 do
@@ -60,19 +49,22 @@ do
 done
 
 fancy_echo "Installing homebrew packages"
-for pkg in "${homebrew_packages[@]}"
-do
-  brew $pkg
-done
+brew bundle --file=- <<EOF
+tap "homebrew/dupes"
 
-brew_remove() {
-  if brew_is_installed "$1"; then
-    fancy_echo "Removing %s ..." "$1"
-    brew uninstall "$@"
-  else
-    fancy_echo "Formula %s not found" "$1"
-  fi
-}
+brew "apple-gcc42"
+brew "ffmpeg"
+brew "gcc"
+brew "ghostscript"
+brew "htop"
+brew "lame"
+brew "media-info"
+brew "phantomjs"
+brew "ssh-copy-id"
+brew "tig"
+brew "v8"
+brew "wget"
+EOF
 
 # Install NVM
 fancy_echo "Installing NVM"
