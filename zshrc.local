@@ -37,7 +37,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
 
 # RBENV
 export PATH="$HOME/.bin:$PATH"
-eval "$(rbenv init - --no-rehash zsh)"
+eval "$(rbenv init - --no-rehash)"
 
 # PYENV
 # eval "$(pyenv init -)"
