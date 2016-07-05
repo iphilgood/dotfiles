@@ -86,7 +86,7 @@ fancy_echo "Installing Prezto"
 git_clone_or_pull 'https://github.com/sorin-ionescu/prezto.git' "${ZDOTDIR:-$HOME}/.zprezto"
 
 # Base16 Shell
-git_clone_or_pull https://github.com/chriskempson/base16-shell.git "$HOME/.config/base16-shell"
+git_clone_or_pull 'https://github.com/chriskempson/base16-shell.git' "$HOME/.config/base16-shell"
 
 # Dotfiles
 if [ -r "$HOME/.rcrc" ]; then
