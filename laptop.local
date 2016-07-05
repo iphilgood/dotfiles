@@ -68,8 +68,7 @@ EOF
 
 # Install NVM
 fancy_echo "Installing NVM"
-git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
-. ~/.nvm/nvm.sh
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 append_to_zshrc 'export NVM_DIR="$HOME/.nvm"'
 append_to_zshrc '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm'
 
