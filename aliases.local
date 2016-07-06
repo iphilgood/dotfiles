@@ -5,7 +5,7 @@
 
 # Continuous Improvement
 alias reload='exec zsh'
-alias envedit='vi ~/laptop/sc-components/personal/phil.schilter_gmail.com/zshrc'
+alias envedit='vi ~/.zshrc'
 alias vimedit='vi ~/.vimrc'
 alias tweak="popular_commands"
 
@@ -17,36 +17,17 @@ alias ls='ls -Gh'
 alias ql='qlmanage -p "$@" >& /dev/null'
 alias r='rails'
 alias ...='cd ../../'
+alias grep='grep --color'
 
 alias sl='mdfind -onlyin .'
 alias slf='mdfind -onlyin . -name'
 alias slfg='mdfind -name'
 alias slg='mdfind'
 
-alias mongoserver='mongod --config /usr/local/etc/mongod.conf'
-alias pg.start='pg_ctl -D /usr/local/var/postgres start'
-alias pg.stop='pg_ctl -D /usr/local/var/postgres stop'
-
 alias brake='bundle exec rake'
 alias prc='pry -r ./config/environment'
 
 # Git aliases
-alias gb='git branch'
-alias gba='git branch -a'
-alias ga='git add'
-alias gc='git commit -v'
-alias gco='git checkout'
-alias gca='git commit -v -a'
-alias gcm='git commit -m'
-alias gd='git diff --word-diff'
-alias gl='git pull --rebase'
-alias glp='git pull --rebase; git push'
-alias gm='git mergetool'
-alias gp='git push'
-alias grep='grep --color'
-alias grs='git remote -v show'
-alias gs='git status -sb'
-alias gst='git status'
 alias gitscore='git log --raw | grep "^Author: " | sort | uniq -c |sort -r'
 alias ggrep='git grep --color'
 alias git-cleanup='git fsck --unreachable && git reflog expire --expire=0 --all && git repack -a -d -l && git prune && git gc --aggressive'

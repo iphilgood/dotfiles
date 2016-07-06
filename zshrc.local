@@ -4,7 +4,7 @@
 ####################################################
 
 function popular_commands() {
-  cat ~/.zsh_history|cut -d ';' -f 2- 2>/dev/null| awk '{a[$1]++ } END{for(i in a){print a[i] " " i}}'|sort -rn|head -n 20
+  cat ~/.zhistory|cut -d ';' -f 2- 2>/dev/null| awk '{a[$1]++ } END{for(i in a){print a[i] " " i}}'|sort -rn|head -n 20
 }
 
 function last_git_tag() {
@@ -21,9 +21,6 @@ function changelog() {
 ####################################################
 export EDITOR=vim
 export VISUAL=vim
-
-# aliases
-# [[ -f ~/.aliases ]] && source ~/.aliases
 
 # Base16 Shell
 BASE16_SCHEME="ocean"
