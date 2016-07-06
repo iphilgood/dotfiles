@@ -4,7 +4,7 @@
 ####################################################
 
 # Continuous Improvement
-alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+alias reload='exec zsh'
 alias envedit='vi ~/laptop/sc-components/personal/phil.schilter_gmail.com/zshrc'
 alias vimedit='vi ~/.vimrc'
 alias tweak="popular_commands"
