@@ -19,6 +19,7 @@ apps=(
   appcleaner
   atom
   cyberduck
+  daisydisk
   disk-inventory-x
   dropbox
   evernote

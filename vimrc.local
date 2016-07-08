@@ -61,7 +61,7 @@ let g:github_comment_open_browser = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline (Status Bar)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme='light'
+"let g:airline_theme='light'
 "let g:airline_left_sep = '▶'
 "let g:airline_right_sep = '◀'
 let g:airline_powerline_fonts = 1
@@ -498,14 +498,14 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=light
+set background=dark
 "let g:solarized_visibility="high"
 "let g:solarized_hitrail=1
 
 set t_Co=256
 let base16colorspace=256
-colorscheme base16-solarized-light
-"colorscheme base16-eighties
+"colorscheme base16-solarized-light
+colorscheme base16-eighties
 "colorscheme base16-tomorrow
 "colorscheme base16-ocean
 "colorscheme Tomorrow-Night-Bright
@@ -530,7 +530,7 @@ set wildignore+=*.swp,*~,._*
 " MacVim GUI Tuning
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_macvim')
-  set guifont=Fira\ Mono\ for\ Powerline:h16
+  set guifont=Fira\ Mono\ Medium\ for\ Powerline:h16
   set guioptions-=T " hide toolbar
   set guioptions-=r " hide right scrollbar
   set guioptions-=l " hide left scrollbar
@@ -544,8 +544,6 @@ if has('gui_macvim')
       au FocusLost * silent! wall
     endif
   endif
-"else
-  "set background=dark
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
