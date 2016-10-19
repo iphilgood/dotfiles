@@ -52,3 +52,6 @@ gt() { git tag -a $1 -m "Release "$1"" }
 
 # Stuff
 alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
+
+# Include secret aliases
+[[ -f ~/.aliases.secret ]] && source ~/.aliases.secret
