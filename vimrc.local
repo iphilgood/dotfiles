@@ -550,7 +550,8 @@ if has('gui_macvim')
   set guioptions-=L " hide left scrollbar whith multiple buffers
   set background=light
   " colorscheme base16-tomorrow
-  colorscheme base16-solarized-light
+  " colorscheme base16-solarized-light
+  colorscheme base16-default-light
   if has("autocmd")
     " Automatically resize splits when resizing MacVim window
     autocmd VimResized * wincmd =
