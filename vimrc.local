@@ -80,9 +80,13 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup pencil
   autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
+  autocmd FileType markdown,mkd call pencil#init({'wrap': 'soft'})
+                            \ | setl spell spl=de_ch fdl=4 noru nonu nornu
+                            \ | setl fdo+=search
+  autocmd FileType text         call pencil#init({'wrap': 'soft'})
 augroup END
+
+let g:pencil#wrapModeDefault = 'soft'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Neocomplcache autocompletion
@@ -142,13 +146,13 @@ if has("autocmd")
         \| exe "normal! g`\"" | endif
 
   " Enable spellchecking for Markdown
-  autocmd FileType markdown setlocal spell
+  " autocmd FileType markdown setlocal spell
 
   " Set German for Markdown files
-  autocmd FileType markdown setlocal spelllang=de_ch
+  " autocmd FileType markdown setlocal spelllang=de_ch
 
   " Automatically wrap at 80 characters for Markdown
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+  " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
   " Automatically wrap at 72 characters and spell check git commit messages
   autocmd FileType gitcommit setlocal textwidth=72
