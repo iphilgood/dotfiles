@@ -551,6 +551,7 @@ set wildignore+=*.swp,*~,._*
 " MacVim GUI Tuning
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_macvim')
+  set macligatures
   set guifont=Fira\ Code:h14
   set guioptions-=T " hide toolbar
   set guioptions-=r " hide right scrollbar
