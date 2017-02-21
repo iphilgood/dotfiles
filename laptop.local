@@ -20,16 +20,18 @@ apps=(
   atom
   cyberduck
   daisydisk
-  disk-inventory-x
   dropbox
   evernote
-  flux
+  firefox
   github-desktop
+  google-drive
   iterm2
   imageoptim
   keepingyouawake
   macvim
   mongohub
+  opera
+  pdfexpert
   postico
   robomongo
   rowanj-gitx
@@ -46,8 +48,10 @@ apps=(
   virtualbox
   visual-studio-code
   vlc
+  vmware-fusion
   whatsapp
   xquartz
+  yate
 )
 
 fancy_echo "Installing apps"
@@ -55,6 +59,10 @@ for pkg in "${apps[@]}"
 do
   brew cask install $pkg
 done
+
+fancy_echo "Installing Fonts"
+tap "caskroom/fonts"
+brew cask install font-fira-code
 
 fancy_echo "Installing homebrew packages"
 brew bundle --file=- <<EOF
@@ -73,6 +81,7 @@ brew "ssh-copy-id"
 brew "tig"
 brew "v8"
 brew "wget"
+brew "pyenv"
 EOF
 
 # NVM
@@ -100,3 +109,7 @@ if [ -r "$HOME/.rcrc" ]; then
   fancy_echo "Updating dotfiles ..."
   rcup
 fi
+
+# System Overrides
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write NSGlobalDomain KeyRepeat -int 1
