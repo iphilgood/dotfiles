@@ -16,28 +16,42 @@ git_clone_or_pull() {
 
 apps=(
   alfred
+  amethyst
   appcleaner
   atom
+  caption
   cyberduck
   daisydisk
+  docker
   dropbox
+  etcher
   evernote
   firefox
   github-desktop
+  google-chrome
   google-drive
-  iterm2
+  handbrake
   imageoptim
+  insomnia
+  iterm2
+  kap
+  keepassxc
   keepingyouawake
   macvim
+  meld
   mongohub
   opera
   pdfexpert
   postico
+  postman
+  raindropio
   robomongo
   rowanj-gitx
   sequel-pro
+  sip
   sizeup
   sketch
+  sketch-toolbox
   skype
   slack
   spotify
@@ -45,6 +59,9 @@ apps=(
   the-unarchiver
   tunnelblick
   typora
+  ubersicht
+  unetbootin
+  vimr
   virtualbox
   visual-studio-code
   vlc
@@ -63,6 +80,7 @@ done
 fancy_echo "Installing Fonts"
 tap "caskroom/fonts"
 brew cask install font-fira-code
+brew cask install font-raleway
 
 fancy_echo "Installing homebrew packages"
 brew bundle --file=- <<EOF
