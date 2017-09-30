@@ -51,7 +51,7 @@ alias gst='git status'
 gt() { git tag -a $1 -m "Release "$1"" }
 
 # Stuff
-alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias getmyip='curl ipinfo.io/ip'
 
 # Include secret aliases
 [[ -f ~/.aliases.secret ]] && source ~/.aliases.secret
