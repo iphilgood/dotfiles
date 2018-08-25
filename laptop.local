@@ -16,56 +16,33 @@ git_clone_or_pull() {
 
 apps=(
   alfred
-  amethyst
   appcleaner
-  atom
   caption
   cyberduck
   daisydisk
-  docker
   dropbox
-  etcher
-  evernote
   firefox
-  github-desktop
+  github
   google-chrome
-  google-drive
-  handbrake
   imageoptim
-  insomnia
   iterm2
-  kap
   keepassxc
   keepingyouawake
   macvim
-  meld
-  mongohub
-  opera
-  pdfexpert
-  postico
-  postman
   raindropio
-  robomongo
   rowanj-gitx
-  sequel-pro
   sip
   sizeup
   sketch
   sketch-toolbox
-  skype
   slack
-  spotify
   telegram
   the-unarchiver
   tunnelblick
   typora
   ubersicht
-  unetbootin
-  vimr
-  virtualbox
   visual-studio-code
   vlc
-  vmware-fusion
   whatsapp
   xquartz
   yate
@@ -93,22 +70,12 @@ brew "ghostscript"
 brew "htop"
 brew "lame"
 brew "media-info"
-brew "mongodb"
 brew "phantomjs"
 brew "ssh-copy-id"
 brew "tig"
 brew "v8"
 brew "wget"
-brew "pyenv"
 EOF
-
-# NVM
-if [ ! -d "$HOME/.nvm" ]; then
-  fancy_echo "Installing NVM"
-  git_clone_or_pull 'https://github.com/creationix/nvm.git' "$HOME/.nvm"
-  cd "$HOME/.nvm" && git checkout `git describe --abbrev=0 --tags`
-  . "$HOME/.nvm/nvm.sh"
-fi
 
 # Prezto
 fancy_echo "Installing Prezto"
