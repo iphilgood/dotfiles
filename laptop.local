@@ -59,23 +59,23 @@ brew tap "caskroom/fonts"
 brew cask install font-fira-code
 brew cask install font-raleway
 
-fancy_echo "Installing homebrew packages"
-brew bundle --file=- <<EOF
-brew tap "homebrew/dupes"
+pkgs=(
+  ffmpeg
+  htop
+  lame
+  media-info
+  phantomjs
+  ssh-copy-id
+  tig
+  v8
+  wget
+)
 
-brew "apple-gcc42"
-brew "ffmpeg"
-brew "gcc"
-brew "ghostscript"
-brew "htop"
-brew "lame"
-brew "media-info"
-brew "phantomjs"
-brew "ssh-copy-id"
-brew "tig"
-brew "v8"
-brew "wget"
-EOF
+fancy_echo "Installing homebrew packages"
+for pkg in "${pkgs[@]}"
+do
+  brew install $pkg
+done
 
 # Prezto
 fancy_echo "Installing Prezto"
@@ -87,7 +87,6 @@ git_clone_or_pull 'https://github.com/chriskempson/base16-shell.git' "$HOME/.con
 # Cleanup
 fancy_echo "Cleaning up old Homebrew formulae ..."
 brew cleanup
-brew cask cleanup
 
 # Dotfiles
 if [ -r "$HOME/.rcrc" ]; then
