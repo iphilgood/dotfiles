@@ -55,13 +55,13 @@ do
 done
 
 fancy_echo "Installing Fonts"
-tap "caskroom/fonts"
+brew tap "caskroom/fonts"
 brew cask install font-fira-code
 brew cask install font-raleway
 
 fancy_echo "Installing homebrew packages"
 brew bundle --file=- <<EOF
-tap "homebrew/dupes"
+brew tap "homebrew/dupes"
 
 brew "apple-gcc42"
 brew "ffmpeg"
