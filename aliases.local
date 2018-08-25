@@ -48,7 +48,6 @@ alias grep='grep --color'
 alias grs='git remote -v show'
 alias gs='git status -sb'
 alias gst='git status'
-gt() { git tag -a $1 -m "Release "$1"" }
 
 # Stuff
 alias getmyip='curl ipinfo.io/ip'
