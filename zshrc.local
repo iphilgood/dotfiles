@@ -33,7 +33,21 @@ BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
 # YARN
 export PATH="$HOME/.yarn/bin:$PATH"
 
+# Android SDK
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+## avdmanager, sdkmanager
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+## adb, logcat
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+## emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+
 # Source Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Source Z
+if [[ -s "/usr/local/etc/profile.d/z.sh" ]]; then
+  . /usr/local/etc/profile.d/z.sh
 fi
